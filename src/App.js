@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Movies from "./components/movies.component";
 import Navbar from "./components/navbar.component";
 import getGenres from "./service/get-genres.service";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import NotFound from "./components/notFound.component";
 import Allmovies from "./components/allMovies.component";
 import SignIn from "./components/signIn.component";
+import AddMovies from "./components/addMovies.component";
 
 var searchValue = "";
 function App() {
@@ -36,31 +37,29 @@ function App() {
 
 	return (
 		<div>
-			<Router>
-				<Navbar
-					handleEnter={handleEnter}
-					handleSearch={handleSearch}
-				></Navbar>
+			<Navbar
+				handleEnter={handleEnter}
+				handleSearch={handleSearch}
+			></Navbar>
 
-				<Switch>
-					<Route exact path="/">
+			<Switch>
+				<Route
+					exact
+					path="/"
+					render={(props) => (
 						<Movies
 							genres={genres}
 							selectedGenre={selectedGenre}
 							handleClickFilter={handleClickFilter}
+							{...props}
 						></Movies>
-					</Route>
-					<Route path="/movies">
-						<Allmovies></Allmovies>
-					</Route>
-					<Route path="/signIn">
-						<SignIn></SignIn>
-					</Route>
-					<Route path="*">
-						<NotFound></NotFound>
-					</Route>
-				</Switch>
-			</Router>
+					)}
+				/>
+				<Route path="/movies" component={Allmovies}></Route>
+				<Route path="/signIn" component={SignIn}></Route>
+                <Route path='/addMovies'component={AddMovies}></Route>
+                <Route path='/*'component={NotFound}></Route>
+			</Switch>
 		</div>
 	);
 }

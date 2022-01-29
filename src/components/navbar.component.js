@@ -35,6 +35,7 @@ const Navbar = ({ handleSearch, handleEnter }) => {
 
 				<span>
 					<Link className="navbar-brand" to="/movies" style={{ color: "white", textDecoration: 'none', marginRight: '30px', fontSize: '15px'}}>IMDb Movies</Link>
+                    <Link className="navbar-brand" to="/addMovies" style={{ color: "white", textDecoration: 'none', marginRight: '30px', fontSize: '15px'}}>Add Movies</Link>
                     <Link className="navbar-brand" to="/signIn" style={{ color: "white", textDecoration: 'none', marginRight: '100px', fontSize: '15px'}}>Sign In</Link>
 				</span>
 			</nav>
