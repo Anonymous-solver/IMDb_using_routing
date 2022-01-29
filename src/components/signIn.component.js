@@ -103,7 +103,7 @@ const SignIn = () => {
 							border: "1px solid gray",
 							outline: "none",
 						}}
-						type="text"
+						type="password"
 						name="password"
 						id="password"
 						value={inputs.password}
@@ -123,7 +123,7 @@ const SignIn = () => {
 								border: "1px solid gray",
 								outline: "none",
 							}}
-							type="text"
+							type="password"
 							name="confirmPassword"
 							id="confirmPassword"
 							value={inputs.confirmPassword}
